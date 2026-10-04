@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111c28">
+  <meta name="description" content="ЛУЧ — концепт сайта световой мастерской. Светильники под интерьер, задачу и характер места.">
+  <title>ЛУЧ — свет, который собирает пространство</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+<link rel="icon" href="../../portfolio-icon.svg" type="image/svg+xml"></head>
+<body>
+  <a class="skip-link" href="#main">К содержанию</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="ЛУЧ — наверх">ЛУЧ</a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <a href="#projects">Проекты</a>
+      <a href="#approach">Подход</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <a class="header-cta" href="#contact">Обсудить проект <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17m-7-7 7 7-7 7"/></svg></a>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">Свет, который <em>собирает</em> пространство.</h1>
+        <p>Проектируем и создаём светильники под интерьер, задачу и характер места.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#contact">Рассказать о задаче <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17m-7-7 7 7-7 7"/></svg></a>
+          <a class="under-link" href="#projects">Смотреть проекты</a>
+        </div>
+        <span class="light-thread" aria-hidden="true"></span>
+      </div>
+      <div class="hero-media"><img src="assets/hero.png" alt="Кольцевой светильник освещает каменный стол в тёмном интерьере" width="1122" height="1402" fetchpriority="high"></div>
+    </section>
+
+    <section class="projects" id="projects" aria-labelledby="projects-title">
+      <div class="section-heading projects-heading">
+        <h2 id="projects-title">Избранные проекты</h2>
+        <p>Свет, который создаёт<br>особые места</p>
+      </div>
+      <div class="project-list">
+        <figure class="project project-first">
+          <img src="assets/presnya.png" alt="Горизонтальный светильник в гостиной квартиры" width="1122" height="1402" loading="lazy">
+          <figcaption><strong>Квартира на Пресне</strong><span>Мягкий свет для частного интерьера</span></figcaption>
+        </figure>
+        <figure class="project project-second">
+          <img src="assets/restaurant.png" alt="Тёплый настольный свет в вечернем ресторане" width="1122" height="1402" loading="lazy">
+          <figcaption><strong>Ресторан «Лист»</strong><span>Свет как часть вечернего сценария</span></figcaption>
+        </figure>
+        <figure class="project project-third">
+          <img src="assets/water-house.png" alt="Вертикальный светильник на террасе дома у воды" width="1122" height="1402" loading="lazy">
+          <figcaption><strong>Дом у воды</strong><span>Тёплые акценты в открытом пространстве</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="approach" id="approach" aria-labelledby="approach-title">
+      <div class="approach-intro">
+        <h2 id="approach-title">От эскиза до первого включения</h2>
+        <p>Мы начинаем не со светильника, а со сценария жизни в пространстве.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="step-number">01</span><h3>Разбираем задачу</h3><p>Изучаем план, привычки и желаемую атмосферу.</p></li>
+        <li><span class="step-number">02</span><h3>Проектируем свет</h3><p>Подбираем форму, температуру и точки света.</p></li>
+        <li><span class="step-number">03</span><h3>Создаём и настраиваем</h3><p>Изготавливаем, устанавливаем и проверяем свет на месте.</p></li>
+      </ol>
+      <div class="approach-media"><img src="assets/process.png" alt="Мастер рисует эскиз светильника рядом с образцами материалов" width="1916" height="820" loading="lazy"></div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="contact-copy">
+        <h2 id="contact-title">Расскажите, каким должно быть ваше пространство<span>.</span></h2>
+        <p>Опишите задачу — мы подскажем, с чего начать проект света.</p>
+      </div>
+      <div class="contact-form-wrap">
+        <form id="project-form" novalidate>
+          <label for="name">Имя</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться?" required minlength="2">
+          <label for="contact-method">Как связаться</label>
+          <input id="contact-method" name="contact" type="text" autocomplete="email" placeholder="Почта, мессенджер или другой удобный способ" required>
+          <label for="description">О проекте</label>
+          <textarea id="description" name="description" rows="5" placeholder="Расскажите о задаче, объекте или идеях" required minlength="10"></textarea>
+          <button class="button button-primary submit-button" type="submit">Отправить запрос <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17m-7-7 7 7-7 7"/></svg></button>
+          <p class="demo-note">Демо-форма: данные не отправляются.</p>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="footer-brand" href="#top">ЛУЧ</a><nav aria-label="Навигация в подвале"><a href="#projects">Проекты</a><a href="#approach">Подход</a><a href="#contact">Контакты</a></nav><p>Демонстрационный проект для портфолио.</p></footer>
+</body>
+</html>

@@ -1,0 +1,4 @@
+# Local portfolio demonstration. Served at site root only.
+# Allow crawl so the noindex meta directive can be read.
+User-agent: *
+Allow: /

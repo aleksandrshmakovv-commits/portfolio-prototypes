@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173c36">
+  <meta name="description" content="ШПОН — демонстрационный кабинет заказов мебельной мастерской.">
+  <title>ШПОН — заказы мастерской</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="calculator.css">
+  <script src="app.js" defer></script>
+  
+  <script src="estimate.js" defer></script>
+  <script src="calculator.js" defer></script>
+<link rel="icon" href="../../portfolio-icon.svg" type="image/svg+xml"></head>
+<body>
+  <a class="skip-link" href="#orders-title">К заказам</a>
+  <div class="app-shell">
+    <aside class="rail" aria-label="Сводка мастерской">
+      <div class="rail-brand"><strong>ШПОН</strong><span>мастерская</span></div>
+      <div class="rail-date"><strong id="today-date"></strong><span id="today-weekday"></span></div>
+      <div class="rail-summary"><p>Сейчас в работе</p><div id="rail-counts"></div></div>
+      <p class="rail-manifesto">Делаем мебель,<br>которая живёт долго.</p>
+      <div class="rail-sketch" aria-hidden="true"><svg viewBox="0 0 180 170" fill="none"><path d="M22 142V49l98-20v103l-98 10Zm0-93 98-20m-98 56 98-14M22 119l98-12M57 43v94M87 37v97m33-105 27 15v90l-27-2m0-103 27 15m-27 27 27 9m-27 23 27 5M14 150l133-14m-134 7v14m134-21v14" stroke="currentColor" stroke-width="1.1"/></svg></div>
+      <button class="reset-button" id="reset-demo" type="button">Сбросить демо-данные</button>
+    </aside>
+
+    <main class="workspace">
+      <div class="worktop"><span>Дерево · Люди · Хорошие вещи</span><span>Демонстрационный интерфейс</span></div>
+      <div class="mobile-brand"><strong>ШПОН</strong><span>мебель с характером</span></div>
+      <section class="content" aria-labelledby="orders-title">
+        <div class="toolbar">
+          <div class="title-wrap"><h1 id="orders-title">Заказы мастерской</h1><p id="orders-subtitle">Вся работа — на одной доске.</p></div>
+          <div class="toolbar-controls">
+            <label class="search"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg><span class="sr-only">Поиск по заказам</span><input id="search" type="search" placeholder="Поиск по заказам" autocomplete="off"></label>
+            <label class="select-wrap"><span class="sr-only">Фильтр по этапу</span><select id="stage-filter"><option value="all">Все заказы</option><option value="new">Новые</option><option value="design">Проект</option><option value="making">Изготовление</option><option value="done">Готово</option></select></label>
+            <button id="week-filter" class="week-filter" type="button" aria-pressed="false">Срок на неделе</button>
+            <button id="open-calculator" class="calculator-launch" type="button">Рассчитать стоимость</button>
+            <button id="add-order" class="add-button" type="button"><span aria-hidden="true">＋</span> Новый заказ</button>
+          </div>
+        </div>
+        <div class="bot-connection" id="bot-connection" hidden><span id="bot-status" role="status">Подключение к боту…</span><button type="button" id="bot-refresh">Обновить заявки</button><a href="../../automation/shpon/demo.html">Демо-чат ↗</a></div>
+        <div id="mobile-filters" class="mobile-filters" aria-label="Фильтр по этапу"></div>
+        <div id="board" class="board" aria-live="polite"></div>
+        <div id="mobile-orders" class="mobile-orders" aria-live="polite"></div>
+      </section>
+      <footer class="workspace-footer"><span>ШПОН — небольшая мастерская. Большие планы.</span><span>Модельный проект · данные сохраняются только в этом браузере</span></footer>
+    </main>
+  </div>
+
+  <dialog id="order-dialog" class="order-dialog" aria-labelledby="dialog-title">
+    <form id="order-form" novalidate>
+      <div class="dialog-head"><div><p id="dialog-id" class="mono"></p><h2 id="dialog-title"></h2></div><button class="close-button" id="close-dialog" type="button" aria-label="Закрыть">×</button></div>
+      <div class="dialog-fields">
+        <label>Название изделия<input id="field-title" name="title" type="text" required minlength="3" placeholder="Например, шкаф для прихожей"></label>
+        <label>Клиент<input id="field-client" name="client" type="text" required minlength="2" placeholder="Имя заказчика"></label>
+        <label>Срок<input id="field-due" name="due" type="date" required></label>
+        <label>Материал<select id="field-material" name="material"><option>Дуб натуральный</option><option>Ясень</option><option>Орех американский</option><option>Берёза</option><option>Другой материал</option></select></label>
+        <label>Размеры, мм<input id="field-dimensions" name="dimensions" type="text" placeholder="Например, 900 × 1800 × 350"></label>
+        <label>Этап<select id="field-stage" name="stage"><option value="new">Новые</option><option value="design">Проект</option><option value="making">Изготовление</option><option value="done">Готово</option></select></label>
+        <label class="note-field">Заметка<textarea id="field-note" name="note" rows="3" placeholder="Особенности заказа"></textarea></label>
+        <div id="bot-attachments" hidden></div>
+      </div>
+      <div class="dialog-sketch" id="dialog-sketch" aria-hidden="true"></div>
+      <p class="form-error" id="form-error" role="alert"></p>
+      <div class="dialog-actions"><button class="save-button" id="save-order" type="submit">Сохранить изменения</button><button class="advance-button" id="advance-order" type="button">В следующий этап →</button></div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog id="calculator-dialog" class="calculator-dialog" aria-labelledby="calculator-title">
+    <div class="calculator-head"><div><h2 id="calculator-title">Стоимость изделия</h2><p>Предварительный расчёт · ставки для демонстрации</p></div><button id="close-calculator" class="close-button" type="button" aria-label="Закрыть калькулятор">×</button></div>
+    <form id="calculator-form" novalidate><div class="calculator-layout"><div class="calculator-fields">
+      <fieldset><legend>Изделие</legend><div class="calc-grid"><label>Тип<select name="kind"><option value="wardrobe">Шкаф</option><option value="shelf">Стеллаж</option><option value="desk">Стол</option><option value="cabinet">Тумба</option><option value="dresser">Комод</option><option value="kitchen">Кухонный модуль</option></select></label><label>Материал<select name="material"><option value="oak">Дуб натуральный</option><option value="ash">Ясень</option><option value="walnut">Орех американский</option><option value="birch">Берёза</option></select></label></div></fieldset>
+      <fieldset><legend>Размеры, мм</legend><div class="calc-grid dimensions"><label>Ширина<input name="width" type="number" min="200" max="4000" step="1" value="1200"></label><label>Высота<input name="height" type="number" min="200" max="3000" step="1" value="2200"></label><label>Глубина<input name="depth" type="number" min="150" max="1000" step="1" value="600"></label></div></fieldset>
+      <fieldset><legend>Комплектация</legend><div class="calc-grid"><label>Полки<input name="shelves" type="number" min="0" max="10" value="3"></label><label>Ящики<input name="drawers" type="number" min="0" max="8" value="0"></label></div><label class="check"><input name="doors" type="checkbox" checked>Закрытые фасады</label><label class="check"><input name="premium" type="checkbox">Усиленные направляющие ящиков</label><label class="check"><input name="finish" type="checkbox" checked>Защитная отделка</label><label class="check"><input name="assembly" type="checkbox" checked>Сборка</label><label class="check"><input name="delivery" type="checkbox">Доставка</label></fieldset>
+      <div class="calc-grid"><label>Количество изделий<input name="quantity" type="number" min="1" max="20" value="1"></label><label>Клиент<input name="client" type="text" maxlength="80" placeholder="Имя для заказа"></label></div><div id="calculator-sketch" class="calculator-sketch" aria-hidden="true"></div>
+    </div><aside class="estimate-panel" aria-label="Предварительная стоимость"><p>Предварительная стоимость</p><output id="estimate-total" class="estimate-total" aria-live="polite"></output><div id="estimate-range" class="estimate-range"></div><div id="estimate-area" class="estimate-area"></div><div id="estimate-lines" class="estimate-lines"></div><div class="estimate-disclosure">Упрощённая модель изделия, запас материала 15%. Ставки смоделированы для портфолио. Замер, точный раскрой, адрес доставки и итоговая цена согласуются отдельно.</div><p id="estimate-error" class="estimate-error" role="alert"></p><div class="estimate-actions"><button id="estimate-save" type="submit">Сохранить расчёт в заказы</button></div></aside></div></form>
+  </dialog>
+</body>
+</html>

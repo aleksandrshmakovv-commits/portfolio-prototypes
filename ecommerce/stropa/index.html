@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#d7f04a"><meta name="description" content="СТРОПА — демонстрационный магазин городских рюкзаков и сумок. Каталог, выбор цвета, корзина и оформление демо-заказа."><title>СТРОПА — рюкзаки и сумки для города</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><script src="data.js" defer></script><script src="state.js" defer></script><script src="templates.js" defer></script><script src="app.js" defer></script><link rel="icon" href="../../portfolio-icon.svg" type="image/svg+xml"></head>
+<body>
+<a class="skip-link" href="#main">К содержимому</a>
+<header class="site-header"><a class="brand" href="#catalog" aria-label="СТРОПА — каталог"><svg aria-hidden="true" viewBox="0 0 40 30"><path d="M12 2H39L31 12H4ZM8 17H35L27 27H0Z" fill="currentColor"/></svg>СТРОПА</a><nav aria-label="Основная навигация"><a href="#catalog">Каталог</a><button type="button" data-info="brand">О бренде</button><button type="button" data-info="delivery">Доставка</button></nav><a class="cart-link" href="#cart">Корзина (<span id="cart-count">0</span>)</a></header>
+<main id="main" tabindex="-1"></main>
+<footer class="site-footer"><div><a class="footer-brand" href="#catalog">СТРОПА</a><p>Для ежедневных маршрутов.</p></div><div class="footer-links"><button type="button" data-info="delivery">Доставка и возврат</button><a href="case.html">О проекте</a><a href="../../index.html">Все работы</a></div><p class="demo-note">Демонстрационный магазин. Товары и цены смоделированы. Оплата и отправка заказов не выполняются.</p></footer>
+<dialog id="info-dialog" aria-labelledby="info-title"><div class="dialog-top"><h2 id="info-title"></h2><button id="close-info" type="button" aria-label="Закрыть"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19"/></svg></button></div><div id="info-content"></div></dialog>
+<div class="toast" id="toast" role="status" hidden><span id="toast-text"></span><a href="#cart">В корзину</a><button type="button" id="close-toast" aria-label="Закрыть уведомление">×</button></div>
+<noscript><p class="no-script">Для каталога и корзины включите JavaScript в браузере.</p></noscript>
+</body></html>
