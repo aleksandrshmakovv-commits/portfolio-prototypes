@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151715">
+  <meta name="description" content="FORM: дизайнерский прототип фитнес-клуба. Направления, интерактивное расписание, выбор абонемента и демо-запись на тренировку.">
+  <title>FORM | Твоя новая форма</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/oswald-700.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/hero.webp?v=20261011-real-photos" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css?v=20261011-real-photos3">
+  <script src="app.js?v=20261009-final2" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#directions">Перейти к содержанию</a>
+  <header class="header">
+    <a class="logo" href="#top" aria-label="FORM, в начало">FORM<span aria-hidden="true">®</span></a>
+    <nav class="navigation" aria-label="Основная навигация" id="navigation">
+      <a href="#directions">Направления</a><a href="#club">Клуб</a><a href="#schedule">Расписание</a><a href="#memberships">Абонементы</a>
+    </nav>
+    <button class="header-trial" type="button" data-book="Пробная тренировка">Пробная тренировка <span aria-hidden="true">↗</span></button>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">Меню</button>
+  </header>
+  <main>
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <img class="hero-photo" src="assets/hero.webp?v=20261011-real-photos" alt="Спортсменка тренируется с канатами в зале" width="1600" height="2400" fetchpriority="high">
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-content">
+        <h1 id="hero-title"><span>ТВОЯ НОВАЯ</span><span class="acid">ФОРМА.</span></h1>
+        <p>Сильнее. Свободнее. В своём ритме.</p>
+        <a class="button button-acid" href="#directions">Найти свою тренировку <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="hero-manifesto" aria-hidden="true"><span>СИЛА</span><i>/</i><span>ДВИЖЕНИЕ</span><i>/</i><span>БАЛАНС</span></div>
+    </section>
+
+    <section class="directions section-paper" id="directions" aria-labelledby="directions-title">
+      <div class="section-heading">
+        <h2 id="directions-title">ТВОЙ РИТМ.<br>ТВОИ ПРАВИЛА.</h2>
+        <p>Неважно, с чего ты начинаешь. Важно найти то, к чему захочется возвращаться.</p>
+      </div>
+      <div class="direction-grid">
+        <button class="direction direction-strength" type="button" data-book="Направление: Сила" aria-label="Подобрать силовую тренировку">
+          <img src="assets/strength.webp?v=20261011-real-photos" alt="Силовая тренировка: подъём гантелей в зале" width="1800" height="1352" loading="lazy">
+          <span class="direction-number">01</span>
+          <span class="direction-copy"><strong>СИЛА</strong><span>Характер в каждом повторении.</span></span><span class="direction-arrow" aria-hidden="true">↗</span>
+        </button>
+        <button class="direction" type="button" data-book="Направление: Движение" aria-label="Подобрать функциональную тренировку">
+          <img src="assets/training.webp?v=20261011-real-photos" alt="Тренировка с канатами под руководством тренера" width="1000" height="1500" loading="lazy">
+          <span class="direction-number">02</span>
+          <span class="direction-copy"><strong>ДВИЖЕНИЕ</strong><span>Энергия, которая меняет твой день.</span></span><span class="direction-arrow" aria-hidden="true">↗</span>
+        </button>
+        <button class="direction" type="button" data-book="Направление: Баланс" aria-label="Подобрать занятие Pilates или Mobility">
+          <img src="assets/balance.webp?v=20261011-real-photos" alt="Растяжка на оборудовании для пилатеса в светлой студии" width="1100" height="1423" loading="lazy">
+          <span class="direction-number">03</span>
+          <span class="direction-copy"><strong>БАЛАНС</strong><span>Спокойствие внутри. Уверенность снаружи.</span></span><span class="direction-arrow" aria-hidden="true">↗</span>
+        </button>
+      </div>
+      <p class="direction-legend">Силовые <span>•</span> Функциональные <span>•</span> Pilates <span>•</span> Mobility</p>
+    </section>
+
+    <section class="club" id="club" aria-labelledby="club-title">
+      <div class="section-heading">
+        <h2 id="club-title">МЕСТО, В КОТОРОЕ<br>ХОЧЕТСЯ ВЕРНУТЬСЯ.</h2>
+        <p>Свет. Воздух. Пространство для движения.</p>
+      </div>
+      <figure class="club-visual"><img src="assets/club.webp?v=20261011-real-photos" alt="Светлый фитнес-зал с тренажёрами и панорамными окнами" width="2000" height="1335" loading="lazy"></figure>
+      <div class="facilities"><p><span>01 /</span> Тренажёрный зал</p><p><span>02 /</span> Зона функционального тренинга</p><p><span>03 /</span> Студия групповых занятий</p></div>
+    </section>
+
+    <section class="schedule section-paper" id="schedule" aria-labelledby="schedule-title">
+      <div class="section-heading">
+        <h2 id="schedule-title">ВСТРЕТИМСЯ<br>В ЗАЛЕ.</h2>
+        <p>Выбери день и занятие. Остальное начнётся с первого шага.</p>
+      </div>
+      <div class="day-list" role="group" aria-label="День недели">
+        <button type="button" aria-pressed="true" data-day="0" aria-label="Понедельник">ПН</button><button type="button" aria-pressed="false" data-day="1" aria-label="Вторник">ВТ</button><button type="button" aria-pressed="false" data-day="2" aria-label="Среда">СР</button><button type="button" aria-pressed="false" data-day="3" aria-label="Четверг">ЧТ</button><button type="button" aria-pressed="false" data-day="4" aria-label="Пятница">ПТ</button><button type="button" aria-pressed="false" data-day="5" aria-label="Суббота">СБ</button><button type="button" aria-pressed="false" data-day="6" aria-label="Воскресенье">ВС</button>
+      </div>
+      <div id="class-list" class="class-list" aria-label="Занятия в понедельник"></div>
+      <p id="schedule-status" class="sr-only" role="status" aria-live="polite"></p>
+      <p class="demo-note">Демо-расписание. Занятия и время приведены для примера.</p>
+      <noscript><p>Для выбора занятий и демо-записи включите JavaScript.</p></noscript>
+    </section>
+
+    <section class="memberships" id="memberships" aria-labelledby="memberships-title">
+      <div class="section-heading membership-heading">
+        <h2 id="memberships-title">ФОРМА ЕСТЬ.<br>ВЫБОР ЗА ТОБОЙ.</h2>
+        <div class="period-control" role="group" aria-label="Срок абонемента"><button type="button" data-period="1" aria-pressed="true">1 месяц</button><button type="button" data-period="3" aria-pressed="false">3 месяца</button><button type="button" data-period="12" aria-pressed="false">12 месяцев</button></div>
+      </div>
+      <div class="plan-grid">
+        <article class="plan plan-start">
+          <h3>START</h3>
+          <div class="plan-price"><p><span data-price="start">3 900</span> <span class="ruble">₽</span></p><span>/ месяц</span><small data-total="start">3 900 ₽ за 1 месяц</small></div>
+          <ul><li>Тренажёрный зал</li><li>Все часы работы</li><li>Вводная тренировка</li></ul>
+          <button type="button" class="button button-outline" data-plan="start">Выбрать START <span aria-hidden="true">↗</span></button>
+        </article>
+        <article class="plan plan-full">
+          <h3>FULL</h3>
+          <div class="plan-price"><p><span data-price="full">5 900</span> <span class="ruble">₽</span></p><span>/ месяц</span><small data-total="full">5 900 ₽ за 1 месяц</small></div>
+          <ul><li>Всё из START</li><li>Групповые занятия</li><li>Консультация тренера</li></ul>
+          <button type="button" class="button button-dark" data-plan="full">Выбрать FULL <span aria-hidden="true">↗</span></button>
+        </article>
+      </div>
+      <p class="demo-note">Демонстрационные тарифы. Условия уточняются перед запуском.</p>
+      <p id="price-status" class="sr-only" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="faq section-paper" aria-labelledby="faq-title">
+      <h2 id="faq-title">ПЕРВЫЙ ШАГ?<br>БЕЗ ЛИШНИХ ВОПРОСОВ.</h2>
+      <div class="faq-list">
+        <details><summary>Если я никогда не тренировался?</summary><p>Начни с вводного занятия. Тренер поможет разобраться с оборудованием и подобрать нагрузку. В прототипе можно пройти демо-запись на пробную тренировку.</p></details>
+        <details><summary>Что взять на первую тренировку?</summary><p>Удобную спортивную одежду, чистую сменную обувь и воду. Перед запуском настоящего сайта сюда добавляются условия конкретного клуба.</p></details>
+        <details><summary>Эта запись отправляется в клуб?</summary><p>Нет. Это портфолио-прототип: форма показывает сценарий записи, но ничего не отправляет. Для рабочего сайта подключаются CRM, уведомления и настоящее расписание.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top"><p>НАЧНИ С ДВИЖЕНИЯ.</p><button type="button" class="button button-dark" data-book="Пробная тренировка">Пробная тренировка <span aria-hidden="true">↗</span></button></div>
+    <div class="footer-wordmark" aria-hidden="true">FORM.</div>
+    <div class="footer-bottom"><a href="../../index.html#form">Все работы портфолио ↗</a><span>Дизайн-концепция фитнес-клуба / 2026</span></div>
+    <p class="case-note">FORM: демонстрационный проект. Название, расписание и тарифы смоделированы. Стоковые фотографии показывают дизайн, а не реальный клуб. Перед запуском контент заменяется, а запись подключается к сервисам заказчика.</p>
+  </footer>
+
+  <dialog class="booking" id="booking-dialog" aria-labelledby="booking-title" aria-describedby="booking-description">
+    <button class="dialog-close" type="button" aria-label="Закрыть запись">×</button>
+    <div id="booking-entry">
+      <p class="dialog-label">FORM / ДЕМО-ЗАПИСЬ</p>
+      <h2 id="booking-title">ТВОЙ ПЕРВЫЙ ШАГ.</h2>
+      <p id="booking-description">Пробная тренировка</p>
+      <form id="booking-form">
+        <label for="booking-name">Как к тебе обращаться?</label>
+        <input id="booking-name" name="name" type="text" placeholder="Например, Алекс" required minlength="2" maxlength="60" autocomplete="off">
+        <label for="booking-email">Email для примера</label>
+        <input id="booking-email" name="email" type="email" placeholder="alex@example.com" required maxlength="120" autocomplete="off" inputmode="email" aria-describedby="privacy-note">
+        <p id="privacy-note" class="form-note">Используй вымышленные данные. Они не сохраняются и никуда не отправляются.</p>
+        <label class="demo-checkbox"><input type="checkbox" id="demo-consent" required><span>Понимаю, что это демонстрация, а не реальная запись.</span></label>
+        <button class="button button-acid" type="submit">Проверить запись <span aria-hidden="true">↗</span></button>
+      </form>
+    </div>
+    <div id="booking-success" hidden aria-live="polite">
+      <p class="dialog-label">FORM / СЦЕНАРИЙ ПРОЙДЕН</p>
+      <h2 tabindex="-1" id="success-title">ДЕМО-ЗАПИСЬ ГОТОВА.</h2>
+      <p id="success-summary"></p><p class="success-note">Ничего не отправлено. На рабочем сайте здесь появится подтверждение от клуба, а заявка уйдёт в его CRM.</p>
+      <button class="button button-acid" type="button" id="success-close">Вернуться на сайт <span aria-hidden="true">↗</span></button>
+    </div>
+  </dialog>
+</body>
+</html>
